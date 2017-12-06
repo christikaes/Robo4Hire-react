@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+
 
 class App extends Component {
   render() {
@@ -59,7 +61,9 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h1>Robo 4 Hire</h1>
+          <AppBar
+            title="Robo4Hire"
+          />
           <span>Find a robot for every job!</span>
           <div id="robots">
             {robots.map(robot =>
