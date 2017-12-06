@@ -4,7 +4,8 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-
+import RaisedButton from 'material-ui/RaisedButton';
+import Chip from 'material-ui/Chip';
 
 class App extends Component {
   render() {
@@ -75,12 +76,14 @@ class App extends Component {
                   <img src={"http://www.robohash.org/" + robot.name} />
                 </CardMedia>
                 <CardText>
-                  {robot.jobs.map(job =>
-                    <div>{job}</div>
-                  )}
+                  <div className="chips">
+                    {robot.jobs.map(job =>
+                      <Chip>{job}</Chip>
+                    )}
+                  </div>
                 </CardText>
                 <CardActions>
-                  < button > Hire Me!</button>
+                  <RaisedButton> Hire Me!</RaisedButton>
                 </CardActions>
               </Card>
             )}
