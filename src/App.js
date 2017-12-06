@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 
 class App extends Component {
@@ -67,18 +68,25 @@ class App extends Component {
           <span>Find a robot for every job!</span>
           <div id="robots">
             {robots.map(robot =>
-              <div className="robot">
-                <h3>{robot.name}</h3>
-                <img src={"http://www.robohash.org/" + robot.name} />
-                {robot.jobs.map(job =>
-                  <div>{job}</div>
-                )}
-                <button>Hire Me!</button>
-              </div>
+              <Card className="robot">
+                <CardMedia
+                  overlay={<CardTitle title={robot.name} />}
+                >
+                  <img src={"http://www.robohash.org/" + robot.name} />
+                </CardMedia>
+                <CardText>
+                  {robot.jobs.map(job =>
+                    <div>{job}</div>
+                  )}
+                </CardText>
+                <CardActions>
+                  < button > Hire Me!</button>
+                </CardActions>
+              </Card>
             )}
           </div>
         </div >
-      </MuiThemeProvider>
+      </MuiThemeProvider >
     );
   }
 }
